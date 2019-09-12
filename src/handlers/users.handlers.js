@@ -10,7 +10,7 @@ const create = async (req, h) => {
 
     const passwordHash = await hash.make(userData.password, 10);
 
-    userData.password = passwordHash;
+    userData.password = passwordHash; 
 
     const user = await userRepository.grava(userData)
     return h.response(user).code(201);

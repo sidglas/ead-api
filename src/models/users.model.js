@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 const UserSchema = new Schema({
   _id: {
     type: String,
-    default: uuidv4(),
+    default: uuidv4()
   },
   name: String,
   dateOfBirth: Date,
@@ -25,7 +25,7 @@ const UserSchema = new Schema({
     number: String,
   },
 }, {
-  timestamps: {},
+  timestamps: {}
 });
 
 module.exports = new mongoose.model('User', UserSchema);
