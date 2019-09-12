@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const uuidv4 = require('uuid/v4');
 
 const { Schema } = mongoose;
-
 const UserSchema = new Schema({
   _id: {
     type: String,
