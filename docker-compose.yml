@@ -4,14 +4,14 @@ services:
     image: mongo
     restart: "always"
     volumes:
-      - ./.dbcache/mongonew/data:/data/db
+      - ./.dbcache/mongo/data:/data/db
     ports:
       - "27019:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
     networks:
-      - backend1
+      - backend
   api:
     image: node:10.16-slim
     ports:
@@ -21,17 +21,8 @@ services:
       - ./:/home/node/app
     command: "npm start"
     networks:
-      - backend1
-  #webxxx:
-   #  image: "php:7.2-apache"
-   #  container_name: php-containerx    
-   #  restart: always
-   #  volumes:
-   #    - ./website:/var/www/html
-   #  ports:
-   #      - "3050:80"
-   #  networks:
-   #   - backend1
+      - backend
+
 networks:
-  backend1:
+  backend:
     driver: "bridge"
