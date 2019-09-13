@@ -12,7 +12,8 @@ const create = async (req, h) => {
 
     userData.password = passwordHash; 
 
-    const user = await userRepository.grava(userData)
+    //const user = await userRepository.grava(userData)
+    const user = await userRepository.create(userData)
     return h.response(user).code(201);
   } catch (e) {
     switch (e.message) {

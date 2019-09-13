@@ -1,7 +1,8 @@
 const UserModel = require('../models/users.model');
 const { ERR_DUPLICATE_EMAIL } = require('../utils/errorTypes');
 
-const grava = async (userData) => {
+//const grava = async (userData) => {
+const create = async (userData) => {
 
   // Verifica se ja existe (pelo email)
   const userExists = await UserModel.exists ({ email: userData.email});
@@ -22,6 +23,6 @@ const findByEmail = async email => (
 
 
 module.exports = {
-  grava,
+  create,
   findByEmail,
 }
