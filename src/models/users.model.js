@@ -12,11 +12,11 @@ const UserSchema = new Schema({
   docType: String,
   docNumber: String,
   email: String,
-  status: Number,
+  status: Boolean,
   password: String,
   address: {
     street: String,
-    complement: String, 
+    complement: String,
     country: String,
     state: String,
     city: String,
@@ -24,7 +24,7 @@ const UserSchema = new Schema({
     number: String,
   },
 }, {
-  timestamps: {}
+  timestamps: {},
 });
 
 module.exports = new mongoose.model('User', UserSchema);

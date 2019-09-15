@@ -7,6 +7,7 @@ const DATABASE = process.env.MONGO_DATABASE;
 const USER = process.env.MONGO_USER;
 const PASSWORD = process.env.MONGO_PASSWORD;
 
+
 const uri = `mongodb://${USER}:${PASSWORD}@${HOST}:${PORT}/${DATABASE}`;
 
 const options = {
@@ -21,3 +22,23 @@ try {
 mongoose.connection.on('error', (err) => {
     console.error(err);
 })
+
+
+//ATLAS
+
+
+/*
+console.log('conectei o local agora vamos pro Atlas');
+//const uri1 = 'mongodb+srv://omnistack08:omnistack08@cluster0-jvpkk.mongodb.net/omnistack8?retryWrites=true&w=majority';
+try {
+    //mongoose.connect(uri1, options)
+    mongoose.connect('mongodb+srv://omnistack08:omnistack08@cluster0-jvpkk.mongodb.net/omnistack8?retryWrites=true&w=majority', { useNewUrlParser: true });    
+} catch (error) {
+    console.error(error);
+}
+mongoose.connection.on('error', (err) => {
+    console.error(err);
+})
+
+console.log('Nem sei o que fiz, mas parece que conectei no ATLAS')
+*/
