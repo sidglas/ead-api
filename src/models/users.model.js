@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const UserSchema = new Schema({
   _id: {
     type: String,
-    default: uuidv4()
+    default: uuidv4
   },
   name: String,
   dateOfBirth: Date,
