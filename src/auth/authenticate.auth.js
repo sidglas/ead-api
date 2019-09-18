@@ -10,7 +10,7 @@ const login = async (email, password) => {
 
   const user = await findByEmail(email);
 
-  if (!user) {
+  if (!user) { 
       throw new Error(ERR_USER_NOT_FOUND);
   } 
  
