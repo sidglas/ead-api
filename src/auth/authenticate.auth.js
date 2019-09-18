@@ -1,6 +1,7 @@
 const { findByEmail } = require('../repositories/users.repository');
 const hash = require('../utils/hash');
 const Token = require ('./token.auth');
+const { LOGIN_EXPIRATION_TIME } = require('./confs.js');
 const { ERR_USER_NOT_FOUND ,
         ERR_INVALID_PASSWORD, 
       } = require('../utils/errorTypes');
@@ -21,11 +22,11 @@ const login = async (email, password) => {
 const JWTData = {
   iss: 'ead-api',
   sub: user.id,
-  exp: Math.floor(Date.now() / 100) + 3600,
+  exp: Math.floor(Date.now() / 100) + LOGIN_EXPIRATION_TIME,
 }
 
   //return 'Usuário Logado';
-  const token = await Token.generate(JWTData);
+  const token = await Token.generate(JWTData); 
   return token;
    
 };
