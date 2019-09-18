@@ -6,8 +6,8 @@ const login = async (req ,h) => {
   const {email, password} = req.payload;
 
   try {
-    const logged = await authenticate.login(email, password);
-    return h.response(logged).code(200);
+    const token = await authenticate.login(email, password);
+    return h.response({token: token}).code(200);
   } catch (e) {
     switch (e.message) {
       case ERR_USER_NOT_FOUND: 
